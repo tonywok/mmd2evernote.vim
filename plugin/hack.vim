@@ -31,9 +31,16 @@ command HackVim :call <SID>Test()
 ruby << EOF
 
 class Hack
-  def foobar
-    puts "IT LIVES"
+
+  def current_buffer
+    VIM::Buffer.current
   end
+
+  def foobar
+    foo = %x{ls ./}
+    puts foo
+  end
+
 end
 
 EOF
