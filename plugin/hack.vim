@@ -22,7 +22,7 @@ let g:loaded_hack = "true"
 
 " vimscript wrappers
 function! s:Test()
-  :ruby Hack.new.foobar
+  :ruby Hack.to_mmd
 endfunction
 
 " command definitions
@@ -30,15 +30,21 @@ command HackVim :call <SID>Test()
 
 ruby << EOF
 
-class Hack
+module Hack
 
-  def current_buffer
-    VIM::Buffer.current
+  def self.to_mmd
+    buff = current_buffer
+    md = buff.length.times.inject("") do |lines, lineno|
+      lines << buff[lineno + 1].to_s
+      lines
+    end
+    puts "markdown?"
+    puts %x{echo '#{md.to_s}' | mmd}
+    puts "end markdown"
   end
 
-  def foobar
-    foo = %x{ls ./}
-    puts foo
+  def self.current_buffer
+    VIM::Buffer.current
   end
 
 end
