@@ -1,5 +1,5 @@
 " Exit quickly when already loaded
-if exists("g:loaded_hack")
+if exists("g:loaded_mmd2evernote")
   finish
 endif
 
@@ -18,7 +18,7 @@ if !has("ruby")
 endif
 
 " loaded flag
-let g:loaded_hack = "true"
+let g:loaded_mmd2evernote = "true"
 
 " vimscript wrappers
 function! s:EvernoteNewNote(notebook, title)
