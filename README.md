@@ -6,10 +6,10 @@ I wanted a way to edit markdown files in vim and upload them to evernote. This i
 
 * AppleScript
 * multimarkdown
+* Ruby
 
 ## Todo
 
-* syntax highlighting
-* remove dependencies
+* Syntax highlighting
 * Edit existing notes
 
